@@ -1,4 +1,5 @@
 hidden=[".config"]
+modules = ["nodejs-20"]
 
 # hosting is currently hardcoded for this language
 # [hosting]
@@ -183,3 +184,7 @@ requiredFiles = [".replit", "replit.nix", ".config"]
 [deployment]
 publicDir = "/"
 deploymentTarget = "static"
+
+[[ports]]
+localPort = 3000
+externalPort = 80

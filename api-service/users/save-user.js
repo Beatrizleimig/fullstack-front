@@ -1,64 +1,64 @@
+let urlBase = "http://localhost:3000";
+
 function saveUser() {
 	// jquery
-	let username = $("#username").val() // pega o valor do input
-	let password = $("#password").val() // pega o valor do input 
-	let email = $("#email").val() // pega o valor do input 
-	let id = $("#index").val() // pega o valor do input 
+	let username = $("#username").val(); // pega o valor do input
+	let password = $("#password").val(); // pega o valor do input
+	let email = $("#email").val(); // pega o valor do input
+	let id = $("#index").val(); // pega o valor do input
 
-	let user = { username, password, email, id } // criando o objeto
+	let user = { username, password, email, id }; // criando o objeto
 
-	let status = $('#salvar-btn').text()
+	let status = $("#salvar-btn").text();
 
-	console.log(status)
+	console.log(status);
 
 	if (status == "Salvar") {
-		if(user.username === "" || user.password === "" || user.email === ""){
-		return
+		if (user.username === "" || user.password === "" || user.email === "") {
+			return;
 		}
 		fetch(
-			"https://api-fullstack-base.henningsummer1.repl.co/users/register",
-			{	
+			urlBase + "/users/register/",
+			{
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
-					"Authorization": `Bearer ${localStorage.getItem('token')}`
+					Authorization: `Bearer ${localStorage.getItem("token")}`,
 				},
-				body: JSON.stringify(user)
-			}
-		).then(()=>{
-				$("#salvar-btn").text("Salvar") // muda o valor do botão de Salvar para Editar
-				getUsers()
-				tableShow('user')
-				setTimeout(() => {
-					$("form").removeClass("was-validated")
-				}, 1)
-				$("form").trigger("reset")
-			})
-
+				body: JSON.stringify(user),
+			},
+		).then(() => {
+			$("#salvar-btn").text("Salvar"); // muda o valor do botão de Salvar para Editar
+			getUsers();
+			tableShow("user");
+			setTimeout(() => {
+				$("form").removeClass("was-validated");
+			}, 1);
+			$("form").trigger("reset");
+		});
 	} else {
-		if(user.username === "" || user.password === "" || user.email === ""){
-		return
+		if (user.username === "" || user.password === "" || user.email === "") {
+			return;
 		}
 		fetch(
-			"https://api-fullstack-base.henningsummer1.repl.co/users/update/",
+			urlBase + "/users/update/",
 			{
 				method: "PATCH",
 				headers: {
 					"Content-Type": "application/json",
-					"Authorization": `Bearer ${localStorage.getItem('token')}`
+					Authorization: `Bearer ${localStorage.getItem("token")}`,
 				},
-				body: JSON.stringify(user)
-			}
-		).then((resp)=>{
-			console.log(resp.json())
-		$("#salvar-btn").text("Salvar") // muda o valor do botão de Salvar para Editar
-		getUsers()
-		tableShow('user')
-		setTimeout(() => {
-			$("form").removeClass("was-validated")
-		}, 1)
-		$("form").trigger("reset")
-		})
+				body: JSON.stringify(user),
+			},
+		).then((resp) => {
+			console.log(resp.json());
+			$("#salvar-btn").text("Salvar"); // muda o valor do botão de Salvar para Editar
+			getUsers();
+			tableShow("user");
+			setTimeout(() => {
+				$("form").removeClass("was-validated");
+			}, 1);
+			$("form").trigger("reset");
+		});
 	}
-
 }

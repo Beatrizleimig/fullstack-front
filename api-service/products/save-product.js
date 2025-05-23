@@ -17,7 +17,7 @@ function saveProduct() {
 		}
 		delete product.id
 		fetch(
-			"https://api-fullstack-base.henningsummer1.repl.co/products/register",
+			API_BASE_URL + "/products/register/",
 			{	
 				method: "POST",
 				headers: {
@@ -42,7 +42,7 @@ function saveProduct() {
 		return
 		}
 		fetch(
-			"https://api-fullstack-base.henningsummer1.repl.co/products/update/",
+			 API_BASE_URL + "/products/update/",
 			{
 				method: "PATCH",
 				headers: {

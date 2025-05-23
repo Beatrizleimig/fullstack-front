@@ -7,21 +7,21 @@ async function login() {
 		password: password,
 	};
 
-	let url = "https://api-fullstack-base.henningsummer1.repl.co/login";
+	let url = API_BASE_URL + "/login";
 
-	if(username === "" || password === ""){
-		return
+	if (username === "" || password === "") {
+		return;
 	}
 
 	try {
 		const response = await fetch(url, {
-			method: 'POST',
+			method: "POST",
 			body: JSON.stringify(user),
 			headers: {
-				'Content-Type': 'application/json',
-				'Accept': 'application/json'
+				"Content-Type": "application/json",
+				Accept: "application/json",
 			},
-			mode: 'cors'
+			mode: "cors",
 		});
 
 		if (!response.ok) {
@@ -30,34 +30,31 @@ async function login() {
 
 		const data = await response.json();
 
-		localStorage.setItem('token', data.token);
-		localStorage.setItem('user', user.username);
-		await tableShow("dashboard")
+		localStorage.setItem("token", data.token);
+		localStorage.setItem("user", user.username);
+		await tableShow("dashboard");
 
-		console.log('user', user.username)
+		console.log("user", user.username);
 
-		$("#userName").text('Usuário: ' + user.username.toUpperCase());
+		$("#userName").text("Usuário: " + user.username.toUpperCase());
 	} catch (error) {
 		console.log(error);
 	}
 }
 
 function logout() {
-	fetch(
-		"https://api-fullstack-base.henningsummer1.repl.co/logout",
-		{
-			method: "GET",
-			headers: {
-				"Content-Type": "application/json",
-			}
-		}
-	).then(() => {
-		localStorage.removeItem('token')
-		$('.navbar-dark').hide()
-		loginShow()
+	fetch(API_BASE_URL + "/logout", {
+		method: "GET",
+		headers: {
+			"Content-Type": "application/json",
+		},
+	}).then(() => {
+		localStorage.removeItem("token");
+		$(".navbar-dark").hide();
+		loginShow();
 		setTimeout(() => {
-			$("form").removeClass("was-validated")
-		}, 1)
-		$("form").trigger("reset")
-	})
+			$("form").removeClass("was-validated");
+		}, 1);
+		$("form").trigger("reset");
+	});
 }

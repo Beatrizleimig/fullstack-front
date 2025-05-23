@@ -1,7 +1,7 @@
-async function getProducts(){
+async function getProducts() {
 	let token = localStorage.getItem('token')
 	console.log('ele', token)
-	await fetch("https://api-fullstack-base.henningsummer1.repl.co/products",{
+	await fetch(API_BASE_URL + "/products/", {
 		method: "GET",
 		headers: {
 			"Content-Type": "application/json",
@@ -10,11 +10,11 @@ async function getProducts(){
 	}).then((response) => {
 		return response.json()
 	}).then((data) => {
-	const products = data
+		const products = data
 		console.log(products)
 		mountProducts(products)
 		return products
-	}).catch(()=>{
+	}).catch(() => {
 		// $("#mensage-table").html("<h6>Erro ao montar a tabela. Faça login</h6>")
 	})
 }

@@ -3,7 +3,7 @@ function deleteProduct(id) { // função deletar que pega o Id a ser deletado
 		id: id
 	}
 	fetch(
-		"https://api-fullstack-base.henningsummer1.repl.co/products/delete/",
+		API_BASE_URL + "/products/delete/",
 		{
 			method: "DELETE",
 			headers: {
