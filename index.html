@@ -33,7 +33,10 @@
 							class="text-body-secondary">Produtos</span></button>
 
 					<button onclick="tableShow('cliente');$('#menu').click()" class="btn btn-primary" style="text-align: center;"><span
-					class="text-body-secondary">Clientes</span></button>
+					class="text-body-secondary">clientes</span></button>
+
+					<button onclick="tableShow('pedido');$('#menu').click()" class="btn btn-primary" style="text-align: center;"><span
+					class="text-body-secondary">pedidos</span></button>
 			
 				</div>
 				<div style="display: flex;
@@ -115,6 +118,13 @@
 <script src="api-service/clientes/edit-clientes.js"></script>
 <script src="api-service/clientes/delete-clientes.js"></script>
 <script src="api-service/clientes/mount-table.js"></script>
+
+<!-- pedidos imports logic -->
+<script src="api-service/pedidos/get-pedidos.js"></script>
+<script src="api-service/pedidos/save-pedidos.js"></script>
+<script src="api-service/pedidos/edit-pedidos.js"></script>
+<script src="api-service/pedidos/delete-pedidos.js"></script>
+<script src="api-service/pedidos/mount-table.js"></script>
 
 <!-- Imports de inicialiação e de rotas -->
 <script src="js/routes.js"></script>

@@ -23,6 +23,14 @@
 		<a onclick="tableShow('cliente')" class="btn btn-primary">Clientes</a>
 	</div>
 </div>
+
+<div class="card" style="width: 18rem;">
+	<div class="card-body">
+		<h5 class="card-title">PEDIDOS</h5>
+		<p id="pedidos" class="card-text"></p>
+		<a onclick="tableShow('pedido')" class="btn btn-primary">pedidos</a>
+	</div>
+</div>
 </div>
 
 
@@ -50,5 +58,6 @@
 	get("users")
 	get("products")
 	get("clientes")
+	get("pedidos")
 	},500)
 </script>

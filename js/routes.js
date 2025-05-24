@@ -31,6 +31,14 @@ function formShow(form){
 			},700)
 		}
 
+		if(form === "pedido"){
+			$('#form-content').load('../pages/pedido/pedido-form.html');
+			setTimeout(()=>{
+			formConfig()
+    	$('#form-content').show({ duration: 500, easing: 'swing', effect: 'fade' })
+			},700)
+		}
+
 
 		
 }
@@ -75,6 +83,15 @@ function tableShow(table){
 
 		if(table === "cliente"){
     $('#table-content').load('../pages/cliente/cliente-table.html');
+			setTimeout(() => {
+				$("form").removeClass("was-validated")
+				$("form").trigger("reset")
+    		$('#table-content').show({ duration: 500, easing: 'swing', effect: 'fade' })
+			}, 700)
+		}
+
+		if(table === "pedido"){
+    $('#table-content').load('../pages/pedido/pedido-table.html');
 			setTimeout(() => {
 				$("form").removeClass("was-validated")
 				$("form").trigger("reset")

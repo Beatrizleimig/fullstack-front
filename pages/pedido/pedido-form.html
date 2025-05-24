@@ -1,0 +1,100 @@
+<!-- Título cadastro de pedidos -->
+<h1>Cadastro de Pedidos</h1>
+<form class="row g-3 needs-validation" novalidate>
+
+    <input id="index-pedido" type="hidden">
+
+    <!-- Cliente -->
+    <div class="col-md-12">
+        <label for="cliente" class="form-label">Cliente</label>
+        <input type="text" class="form-control" id="cliente" required>
+        <div class="valid-feedback">
+            Cliente preenchido
+        </div>
+        <div class="invalid-feedback">
+            Cliente é obrigatório
+        </div>
+    </div>
+
+    <!-- Itens (produtos e quantidade) -->
+    <div class="col-md-12">
+        <label for="itens" class="form-label">Itens do Pedido</label>
+        <textarea class="form-control" id="itens" required></textarea>
+        <div class="valid-feedback">
+            Itens preenchidos
+        </div>
+        <div class="invalid-feedback">
+            Itens são obrigatórios
+        </div>
+    </div>
+
+    <!-- Status do pedido -->
+    <div class="col-md-12">
+        <label for="status" class="form-label">Status</label>
+        <select class="form-control" id="status" required>
+            <option value="pendente">Pendente</option>
+            <option value="em andamento">Em andamento</option>
+            <option value="concluido">Concluído</option>
+            <option value="cancelado">Cancelado</option>
+        </select>
+    </div>
+
+    <!-- Valor total -->
+    <div class="col-md-12">
+        <label for="valor_total" class="form-label">Valor Total</label>
+        <input type="text" class="form-control" id="valor_total" required>
+        <div class="valid-feedback">
+            Valor preenchido
+        </div>
+        <div class="invalid-feedback">
+            Valor é obrigatório
+        </div>
+    </div>
+
+    <!-- Data e hora do pedido -->
+    <div class="col-md-12">
+        <label for="data_hora" class="form-label">Data e Hora</label>
+        <input type="datetime-local" class="form-control" id="data_hora" required>
+        <div class="valid-feedback">
+            Data e hora preenchidos
+        </div>
+        <div class="invalid-feedback">
+            Data e hora são obrigatórios
+        </div>
+    </div>
+
+    <div class="col-12">
+        <button onclick="savePedido()" id="salvar-btn-pedido" class="btn btn-primary">Salvar</button>
+        <button onclick="tableShow('pedido')" type="button" class="btn btn-danger">Cancelar</button>
+    </div>
+</form>
+
+<!-- Título lista de pedidos -->
+<h1>Lista de Pedidos</h1>
+
+<div class="d-grid gap-2">
+    <button onclick="formShow('pedido')" class="btn btn-primary" type="button">Cadastrar Novo Pedido</button>
+</div>
+<br>
+
+<table class="table table-striped" style="text-align: center;">
+    <thead class="table-light">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Cliente</th>
+            <th scope="col">Itens</th>
+            <th scope="col">Status</th>
+            <th scope="col">Valor Total</th>
+            <th scope="col">Data e Hora</th>
+            <th scope="col">Ações</th>
+        </tr>
+    </thead>
+    <tbody id="table-pedido">
+    </tbody>
+</table>
+
+<span style="text-align: center;" id="mensage-table"></span>
+
+<script>
+    getPedidos()
+</script>
