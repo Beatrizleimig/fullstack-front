@@ -23,6 +23,15 @@ function formShow(form){
 			},700)
 		}
 
+		if(form === "cliente"){
+			$('#form-content').load('../pages/cliente/cliente-form.html');
+			setTimeout(()=>{
+			formConfig()
+    	$('#form-content').show({ duration: 500, easing: 'swing', effect: 'fade' })
+			},700)
+		}
+
+
 		
 }
 
@@ -57,6 +66,15 @@ function tableShow(table){
 	
 		if(table === "product"){
     $('#table-content').load('../pages/product/product-table.html');
+			setTimeout(() => {
+				$("form").removeClass("was-validated")
+				$("form").trigger("reset")
+    		$('#table-content').show({ duration: 500, easing: 'swing', effect: 'fade' })
+			}, 700)
+		}
+
+		if(table === "cliente"){
+    $('#table-content').load('../pages/cliente/cliente-table.html');
 			setTimeout(() => {
 				$("form").removeClass("was-validated")
 				$("form").trigger("reset")

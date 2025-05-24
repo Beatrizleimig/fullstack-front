@@ -31,7 +31,10 @@
 					
 					<button onclick="tableShow('product');$('#menu').click()" class="btn btn-primary" style="text-align: center;"><span
 							class="text-body-secondary">Produtos</span></button>
-					
+
+					<button onclick="tableShow('cliente');$('#menu').click()" class="btn btn-primary" style="text-align: center;"><span
+					class="text-body-secondary">Clientes</span></button>
+			
 				</div>
 				<div style="display: flex;
 					align-self: end;">
@@ -105,6 +108,13 @@
 <script src="api-service/products/edit-product.js"></script>
 <script src="api-service/products/delete-products.js"></script>
 <script src="api-service/products/mount-table.js"></script>
+
+<!-- Clientes imports logic -->
+<script src="api-service/clientes/get-clientes.js"></script>
+<script src="api-service/clientes/save-clientes.js"></script>
+<script src="api-service/clientes/edit-clientes.js"></script>
+<script src="api-service/clientes/delete-clientes.js"></script>
+<script src="api-service/clientes/mount-table.js"></script>
 
 <!-- Imports de inicialiação e de rotas -->
 <script src="js/routes.js"></script>

@@ -1,0 +1,29 @@
+<!-- Título lista de clientes -->
+<h1>Lista de Clientes</h1>
+
+<!-- Botão de criar novo item -->
+<div class="d-grid gap-2">
+    <button onclick="formShow('cliente')" class="btn btn-primary" type="button">Cadastrar novo Cliente</button>
+</div>
+<br>
+
+<table class="table table-striped" style="text-align: center;">
+    <thead class="table-light">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Telefone</th>
+            <th scope="col">Endereço</th>
+            <th scope="col">E-mail</th>
+    
+        </tr>
+    </thead>
+    <tbody id="table-cliente">
+    </tbody>
+</table>
+
+<span style="text-align: center;" id="mensage-table"></span>
+
+<script>
+    getClientes()
+</script>

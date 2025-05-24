@@ -15,6 +15,14 @@
 		<a onclick="tableShow('product')" class="btn btn-primary">Produtos</a>
 	</div>
 </div>
+
+<div class="card" style="width: 18rem;">
+	<div class="card-body">
+		<h5 class="card-title">CLIENTES</h5>
+		<p id="clientes" class="card-text"></p>
+		<a onclick="tableShow('cliente')" class="btn btn-primary">Clientes</a>
+	</div>
+</div>
 </div>
 
 
@@ -22,7 +30,7 @@
 <script>
 
 	async function get(resource) {
-		fetch("https://api-fullstack-base.henningsummer1.repl.co/" + resource, {
+		fetch("http://localhost:3000" + resource, {
 			method: "GET",
 			headers: {
 				"Content-Type": "application/json",
@@ -41,5 +49,6 @@
 	setTimeout(() => {
 	get("users")
 	get("products")
+	get("clientes")
 	},500)
 </script>

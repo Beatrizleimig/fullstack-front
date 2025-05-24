@@ -1,0 +1,39 @@
+<!-- Título cadastro de clientes -->
+<h1>Cadastro de Clientes</h1>
+<form class="row g-3 needs-validation" novalidate>
+
+    <input id="index-cliente" type="hidden">
+    <!-- colunas do table -->
+    <div class="col-md-12">
+        <label for="name" class="form-label">Nome</label>
+        <input type="text" class="form-control" id="name" required>
+        <div class="valid-feedback">
+            Nome preenchido
+        </div>
+        <div class="invalid-feedback">
+            Nome é obrigatório
+        </div>
+    </div>
+    <div class="col-md-12">
+        <label for="phone" class="form-label">Telefone</label>
+        <input type="text" class="form-control" id="phone">
+    </div>
+    <div class="col-md-12">
+        <label for="address" class="form-label">Endereço</label>
+        <input type="text" class="form-control" id="address">
+    </div>
+    <div class="col-md-12">
+        <label for="email" class="form-label">E-mail</label>
+        <input type="email" class="form-control" id="email" required>
+        <div class="valid-feedback">
+            E-mail preenchido
+        </div>
+        <div class="invalid-feedback">
+            E-mail é obrigatório
+        </div>
+    </div>
+    <div class="col-12">
+        <button onclick="saveCliente()" id="salvar-btn-cliente" class="btn btn-primary">Salvar</button>
+        <button onclick="tableShow('cliente')" type="button" class="btn btn-danger">Cancelar</button>
+    </div>
+</form>
