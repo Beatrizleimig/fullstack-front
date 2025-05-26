@@ -11,7 +11,7 @@ async function getPedidos() {
     }).then((response) => response.json())
       .then((data) => {
           const pedidos = data;
-          console.log("Pedidos recebidos:", pedidos);
+          console.log("Pedidos recebidos:", data);
           mountPedidos(pedidos); // Monta a tabela de pedidos
           return pedidos;
       })

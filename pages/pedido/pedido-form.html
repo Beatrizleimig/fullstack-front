@@ -8,6 +8,9 @@
     <div class="col-md-12">
         <label for="cliente" class="form-label">Cliente</label>
         <input type="text" class="form-control" id="cliente" required>
+        
+        <select id="clientes" name="clientes" class="form-select"  required></select>
+
         <div class="valid-feedback">
             Cliente preenchido
         </div>
@@ -15,6 +18,8 @@
             Cliente é obrigatório
         </div>
     </div>
+
+    
 
     <!-- Itens (produtos e quantidade) -->
     <div class="col-md-12">
@@ -69,32 +74,6 @@
     </div>
 </form>
 
-<!-- Título lista de pedidos -->
-<h1>Lista de Pedidos</h1>
-
-<div class="d-grid gap-2">
-    <button onclick="formShow('pedido')" class="btn btn-primary" type="button">Cadastrar Novo Pedido</button>
-</div>
-<br>
-
-<table class="table table-striped" style="text-align: center;">
-    <thead class="table-light">
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Cliente</th>
-            <th scope="col">Itens</th>
-            <th scope="col">Status</th>
-            <th scope="col">Valor Total</th>
-            <th scope="col">Data e Hora</th>
-            <th scope="col">Ações</th>
-        </tr>
-    </thead>
-    <tbody id="table-pedido">
-    </tbody>
-</table>
-
-<span style="text-align: center;" id="mensage-table"></span>
-
 <script>
-    getPedidos()
+    getSelectClientes();
 </script>

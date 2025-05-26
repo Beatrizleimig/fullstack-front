@@ -8,7 +8,7 @@ async function editPedido(id) {
     })
         .then((response) => response.json())
         .then((data) => {
-            const pedido = data[0];
+            const pedido = data;
             console.log(pedido);
 
             formShow("pedido");

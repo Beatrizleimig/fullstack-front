@@ -1,4 +1,5 @@
 async function editCliente(id) {
+     console.log("Editar cliente: " + id);
    
     await fetch(
         API_BASE_URL + "/clientes/" + id,
@@ -14,8 +15,8 @@ async function editCliente(id) {
             return response.json();
         })
         .then((data) => {
-            const cliente = data[0];
-           console.log("Cliente recebido:", cliente); /
+            const cliente = data;
+           console.log("Cliente recebido:", cliente); 
 
             formShow("cliente");
 

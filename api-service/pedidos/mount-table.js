@@ -1,4 +1,5 @@
 function mountPedidos(pedidos) {
+     console.log("Pedidos dentro de mountPedidos:", pedidos); //  Confirma os dados recebidos
     let lista = "";
     for (let pedido of pedidos) {
         lista += `

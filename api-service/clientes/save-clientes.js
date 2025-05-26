@@ -30,7 +30,7 @@ function saveCliente() {
         ).then((resp) => {
            resp.json().then(data => console.log("Resposta da API:", data));
 
-            $("#salvar-btn-cliente").text("Salvar"); // muda o valor do botão de Salvar para Editar
+            $("#salvar-btn").text("Salvar"); // muda o valor do botão de Salvar para Editar
             getClientes();
             tableShow('cliente');
             setTimeout(() => {
