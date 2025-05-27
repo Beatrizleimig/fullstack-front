@@ -5,8 +5,7 @@ function mountPedidos(pedidos) {
         lista += `
             <tr>
                 <th scope="row">${pedido.id}</th>
-                <td>${pedido.cliente}</td>
-                <td>${pedido.itens}</td>
+                <td>${pedido.clienteName}</td>
                 <td>${pedido.status}</td>
                 <td>${pedido.valor_total}</td>
                 <td>${pedido.data_hora}</td>

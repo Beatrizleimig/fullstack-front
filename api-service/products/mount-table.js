@@ -18,3 +18,12 @@ function mountProducts(products) {
 	$("#table-product").html(lista) 
 
 }
+
+function mountSelectProducts(products) {
+    let varOptions = '<option value="">Selecione um Produto</option>';
+    for (let product of products) {
+        varOptions += `<option value="${product.id}">${product.name}</option>`;
+    }
+    console.log("varOptions: " + varOptions);
+    $("#produto").html(varOptions);
+}
