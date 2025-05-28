@@ -1,20 +1,21 @@
 function savePedido() {
     // jquery
-    let id_cliente = $("#clientes").val(); 
-    //let itens = itensPedido;  
+    let id_cliente = $("#clientes").val();  
     let status = $("#status").val(); // pega o valor do input
     let valor_total = $("#valor_total").val(); // pega o valor do input
     let data_hora = $("#data_hora").val(); // pega o valor do input
     let id = $("#index-pedido").val(); // pega o valor do input
+    let itens = itensPedido; 
 
-    let pedido = { id_cliente, status, valor_total, data_hora, id }; // criando o objeto
+    let pedido = { id_cliente, status, valor_total, data_hora, id,  itens  }; // criando o objeto
 
     let statusBotao = $('#salvar-btn-pedido').text();
 
     console.log(statusBotao);
 
     if (statusBotao == "Salvar") {
-        if (pedido.id_cliente === "" || pedido.itens === "" || pedido.status === "" || pedido.valor_total === "" || pedido.data_hora === "") {
+        if (pedido.id_cliente === "" || pedido.status === "" || pedido.valor_total === "" || pedido.data_hora === "" || pedido.itens.length === 0 ) {
+             alert("Por favor, preencha todos os campos e adicione ao menos um item ao pedido."); // Mensagem de erro mais específica
             return;
         }
         delete pedido.id;
@@ -32,6 +33,7 @@ function savePedido() {
         ).then(resp => resp.json())
           .then(data => {
               console.log("Resposta da API:", data);
+              alert("Pedido salvo com sucesso!"); // feedback para o usuário
               $("#salvar-btn-pedido").text("Salvar"); // muda o valor do botão de Salvar para Editar
               getPedidos();
               tableShow('pedido');
@@ -39,6 +41,8 @@ function savePedido() {
                   $("form").removeClass("was-validated");
               }, 1);
               $("form").trigger("reset");
+              itensPedido = []; // Limpa os itens na memória após salvar
+              atualizarListaItens(); // Atualiza a tabela de itens na UI
           })
           .catch(error => console.error("Erro ao salvar pedido:", error));
 
@@ -65,6 +69,8 @@ function savePedido() {
                 $("form").removeClass("was-validated");
             }, 1);
             $("form").trigger("reset");
+             itensPedido = []; // Limpa os itens na memória após atualizar
+            atualizarListaItens(); // Atualiza a tabela de itens na UI
         })
         .catch(error => console.error("Erro ao atualizar pedido:", error));
     }

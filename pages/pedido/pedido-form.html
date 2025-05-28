@@ -25,8 +25,8 @@
     <div class="col-md-6">
         <label for="produto" class="form-label">Produto</label>
         <select id="produto" class="form-select">
-            <option value="">Selecione um produto</option>
-            </select>
+            <option value="" data-price="">Selecione um produto</option>
+        </select>
     </div>
 
     <div class="col-md-3">
@@ -45,6 +45,7 @@
                 <tr>
                     <th>Produto</th>
                     <th>Quantidade</th>
+                    <th>Preco</th>
                     <th>Ações</th>
                 </tr>
             </thead>
@@ -67,25 +68,13 @@
     <!-- Valor total -->
     <div class="col-md-12">
         <label for="valor_total" class="form-label">Valor Total</label>
-        <input type="text" class="form-control" id="valor_total" required>
-        <div class="valid-feedback">
-            Valor preenchido
-        </div>
-        <div class="invalid-feedback">
-            Valor é obrigatório
-        </div>
+        <label id="valor_total"></label>
     </div>
 
     <!-- Data e hora do pedido -->
     <div class="col-md-12">
         <label for="data_hora" class="form-label">Data e Hora</label>
-        <input type="datetime-local" class="form-control" id="data_hora" required>
-        <div class="valid-feedback">
-            Data e hora preenchidos
-        </div>
-        <div class="invalid-feedback">
-            Data e hora são obrigatórios
-        </div>
+        <label class="form-label" id="data_hora"></label>
     </div>
 
     <div class="col-12">
@@ -106,6 +95,8 @@
             const produtoId = $("#produto").val();
             const quantidade = parseInt($("#quantidade").val());
             const nomeProduto = $("#produto option:selected").text();
+            const preco = $('#produto option:selected').data('price');
+
 
             if (!produtoId) {
                 alert("Selecione um produto.");
@@ -115,7 +106,8 @@
             const item = {
                 produtoId: produtoId,
                 nomeProduto: nomeProduto,
-                quantidade: quantidade
+                quantidade: quantidade,
+                preco: preco
             };
 
             itensPedido.push(item);
@@ -132,6 +124,7 @@
             const row = $("<tr>");
             row.append($("<td>").text(item.nomeProduto));
             row.append($("<td>").text(item.quantidade));
+            row.append($("<td>").text(item.preco));
             const acoesCell = $("<td>");
             const botaoRemover = $("<button>")
                 .text("Remover")

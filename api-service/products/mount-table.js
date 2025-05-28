@@ -20,9 +20,9 @@ function mountProducts(products) {
 }
 
 function mountSelectProducts(products) {
-    let varOptions = '<option value="">Selecione um Produto</option>';
+    let varOptions = '<option value="" data-price="">Selecione um Produto</option>';
     for (let product of products) {
-        varOptions += `<option value="${product.id}">${product.name}</option>`;
+        varOptions += `<option value="${product.id}" data-price="${product.price}">${product.name}</option>`;
     }
     console.log("varOptions: " + varOptions);
     $("#produto").html(varOptions);
