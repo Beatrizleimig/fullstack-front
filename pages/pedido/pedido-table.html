@@ -1,28 +1,33 @@
 <!-- Título lista de pedidos -->
-<h1>Lista de Pedidos</h1>
+<h1 class="mb-4 text-center">Lista de Pedidos</h1>
 
 <!-- Botão de criar novo pedido -->
-<div class="d-grid gap-2">
-    <button onclick="formShow('pedido')" class="btn btn-primary" type="button">Cadastrar novo Pedido</button>
+<div class="d-flex justify-content-center mb-4">
+    <button onclick="formShow('pedido')" class="btn btn-warning btn-lg shadow">
+        <i class="bi bi-plus-circle me-2"></i> Cadastrar novo Pedido
+    </button>
 </div>
-<br>
 
-<table class="table table-striped" style="text-align: center;">
-    <thead class="table-light">
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Cliente</th>
-            <th scope="col">Status</th>
-            <th scope="col">Valor Total</th>
-            <th scope="col">Data e Hora</th>
-            <th scope="col">Ações</th>
-        </tr>
-    </thead>
-    <tbody id="table-pedido">
-    </tbody>
-</table>
+<div class="table-responsive">
+    <table class="table table-hover table-bordered shadow-sm rounded" style="text-align: center;">
+        <thead class="table-dark">
+            <tr>
+                <th style="background-color: #facf60; color: #333;">#</th>
+                <th style="background-color: #facf60; color: #333;">Cliente</th>
+                <th style="background-color: #facf60; color: #333;">Status</th>
+                <th style="background-color: #facf60; color: #333;">Valor Total</th>
+                <th style="background-color: #facf60; color: #333;">Data e Hora</th>
+                <th style="background-color: #facf60; color: #333;">Ações</th>
+         
+            </tr>
+        </thead>
+        <tbody id="table-pedido">
+            <!-- Conteúdo dinâmico -->
+        </tbody>
+    </table>
+</div>
 
-<span style="text-align: center;" id="mensage-table"></span>
+<p class="text-center text-muted" id="mensage-table"></p>
 
 <script>
     getPedidos()

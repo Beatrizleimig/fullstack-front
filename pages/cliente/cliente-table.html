@@ -1,29 +1,34 @@
 <!-- Título lista de clientes -->
-<h1>Lista de Clientes</h1>
+<h1 class="mb-4 text-center">Lista de Clientes</h1>
 
-<!-- Botão de criar novo item -->
-<div class="d-grid gap-2">
-    <button onclick="formShow('cliente')" class="btn btn-primary" type="button">Cadastrar novo Cliente</button>
+<!-- Botão de criar novo cliente -->
+<div class="d-flex justify-content-center mb-4">
+    <button onclick="formShow('cliente')" class="btn btn-warning btn-lg shadow">
+        <i class="bi bi-plus-circle me-2"></i> Cadastrar novo Cliente
+    </button>
 </div>
-<br>
 
-<table class="table table-striped" style="text-align: center;">
-    <thead class="table-light">
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Nome</th>
-            <th scope="col">Telefone</th>
-            <th scope="col">Endereço</th>
-            <th scope="col">E-mail</th>
-    
-        </tr>
-    </thead>
-    <tbody id="table-cliente">
-    </tbody>
-</table>
+<div class="table-responsive">
+    <table class="table table-hover table-bordered shadow-sm rounded" style="text-align: center;">
+        <thead class="table-dark">
+            <tr>
+                <th style="background-color: #facf60; color: #333;">#</th>
+                <th style="background-color: #facf60; color: #333;">Nome</th>
+                <th style="background-color: #facf60; color: #333;">Telefone</th>
+                <th style="background-color: #facf60; color: #333;">Endereço</th>
+                <th style="background-color: #facf60; color: #333;">E-mail</th>
+                <th style="background-color: #facf60; color: #333;">Ações</th>
 
-<span style="text-align: center;" id="mensage-table"></span>
+            </tr>
+        </thead>
+        <tbody id="table-cliente">
+            <!-- Conteúdo dinâmico -->
+        </tbody>
+    </table>
+</div>
+
+<p class="text-center text-muted" id="mensage-table"></p>
 
 <script>
-    getClientes()
+    getClientes();
 </script>

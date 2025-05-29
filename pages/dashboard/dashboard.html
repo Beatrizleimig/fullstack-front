@@ -1,41 +1,44 @@
-	<h1>Dashboard</h1>
-<div style="display: flex; flex-direction: row; gap: 10px; text-align: center;justify-content: space-between;">
-<div class="card" style="width: 18rem;">
-	<div class="card-body">
-		<h5 class="card-title">USUÁRIOS</h5>
-		<p id="users-total" class="card-text"></p>
-		<a onclick="tableShow('user')" class="btn btn-primary">Usuários</a>
-	</div>
-</div>
+	<h1 class="mb-4">Dashboard</h1>
 
-<div class="card" style="width: 18rem;">
-	<div class="card-body">
-		<h5 class="card-title">PRODUTOS</h5>
-		<p id="products-total" class="card-text"></p>
-		<a onclick="tableShow('product')" class="btn btn-primary">Produtos</a>
-	</div>
-</div>
+<div class="d-flex flex-wrap gap-3 justify-content-between" style="max-width: 900px; margin: auto;">
 
-<div class="card" style="width: 18rem;">
-	<div class="card-body">
-		<h5 class="card-title">CLIENTES</h5>
-		<p id="clientes" class="card-text"></p>
-		<a onclick="tableShow('cliente')" class="btn btn-primary">Clientes</a>
-	</div>
-</div>
+  <div class="card card-primary" onclick="tableShow('user')">
+    <i class="bi bi-people-fill"></i>
+    <h5 class="card-title mt-3">USUÁRIOS</h5>
+  </div>
 
-<div class="card" style="width: 18rem;">
-	<div class="card-body">
-		<h5 class="card-title">PEDIDOS</h5>
-		<p id="pedidos" class="card-text"></p>
-		<a onclick="tableShow('pedido')" class="btn btn-primary">pedidos</a>
-	</div>
-</div>
-</div>
+  <div class="card card-success" onclick="tableShow('product')">
+    <i class="bi bi-box-seam"></i>
+    <h5 class="card-title mt-3">PRODUTOS</h5>
+  </div>
 
+  <div class="card card-warning" onclick="tableShow('cliente')">
+    <i class="bi bi-person-badge-fill"></i>
+    <h5 class="card-title mt-3">CLIENTES</h5>
+  </div>
+
+  <div class="card card-danger" onclick="tableShow('pedido')">
+    <i class="bi bi-card-checklist"></i>
+    <h5 class="card-title mt-3">PEDIDOS</h5>
+  </div>
+
+</div>
 
 
 <script>
+	// Função para animar a contagem
+  function animateCount(id, endValue) {
+    const el = document.getElementById(id);
+    let start = 0;
+    const duration = 800;
+    const stepTime = Math.abs(Math.floor(duration / endValue));
+    const timer = setInterval(() => {
+      start += 1;
+      el.textContent = start;
+      if (start >= endValue) clearInterval(timer);
+    }, stepTime);
+  }
+
 
 	async function get(resource) {
 		fetch("http://localhost:3000" + resource, {

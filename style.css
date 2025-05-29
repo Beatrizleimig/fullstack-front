@@ -29,3 +29,68 @@ h1{
     transform: rotate(360deg);
   }
 }
+ .card {
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    color: white;
+    flex: 1 1 18rem;
+    padding: 30px 20px;
+    text-align: center;
+    transition: transform 0.2s ease;
+    border: 1px solid transparent;
+     color: inherit; /* usa a cor do texto */
+  }
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+  .card i {
+    font-size: 3rem;
+    margin-bottom: 15px;
+  }
+  .card-primary {
+    background-color: #A7C7E7; /* azul pastel */
+    color: #333; /* cinza escuro */
+  }
+  .card-success {
+    background-color: #A8D5BA; /* verde pastel */
+    color: #333; /* cinza escuro */
+  }
+  .card-warning {
+    background-color: #F9E79F; /* amarelo pastel */
+    color: #333; /* cinza escuro */
+  
+  }
+  .card-danger {
+    background-color: #F5A6A6; /* vermelho pastel */
+    color: #333; /* cinza escuro */
+  }
+  .table th, .table td {
+    vertical-align: middle;
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(255, 223, 102, 0.2);
+}
+
+.btn-warning {
+    background-color: #f0ad4e;
+    border: none;
+}
+
+.btn-warning:hover {
+    background-color: #ec971f;
+}
+
+.table thead th {
+    font-size: 1.1rem;
+}
+
+.table td, .table th {
+    padding: 1rem;
+}
+
+
+

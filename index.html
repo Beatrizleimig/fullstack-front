@@ -11,60 +11,51 @@
 
 <body>
 
-	<!-- Itens dos menus e nome do usuário logado-->
-	<div class="collapse" id="navbarToggleExternalContent" data-bs-theme="dark">
-		<div class="bg-dark p-4">
-			<div style="width: 100%;
-				display: flex;
-				justify-content: space-between;">
 
-				<div style="display: flex;
-				justify-content: space-evenly;
-				flex-direction: column;
-				gap: 10px;">
-					
-					<button onclick="tableShow('dashboard');$('#menu').click()" class="btn btn-primary" style="text-align: center;"><span
-							class="text-body-secondary">Dashboard</span></button>
-					
-					<button onclick="tableShow('user');$('#menu').click()" class="btn btn-primary" style="text-align: center;"><span
-							class="text-body-secondary">Usuários</span></button>
-					
-					<button onclick="tableShow('product');$('#menu').click()" class="btn btn-primary" style="text-align: center;"><span
-							class="text-body-secondary">Produtos</span></button>
+<body style="padding-top: 70px;"></body>
+	<!-- Navbar com Offcanvas Dark -->
+<nav class="navbar navbar-light fixed-top" style="background-color: #facf60;">
+    <div class="container-fluid">
+        <a class="navbar-brand text-dark" href="#">Fullstack App</a>
 
-					<button onclick="tableShow('cliente');$('#menu').click()" class="btn btn-primary" style="text-align: center;"><span
-					class="text-body-secondary">clientes</span></button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDark"
+            aria-controls="offcanvasDark">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</nav>
 
-					<button onclick="tableShow('pedido');$('#menu').click()" class="btn btn-primary" style="text-align: center;"><span
-					class="text-body-secondary">pedidos</span></button>
-			
-				</div>
-				<div style="display: flex;
-					align-self: end;">
-					<a style="text-align: start;"><span id="userName"
-							class="text-body-secondary">Usuário</span></a>
-				</div>
-			</div>
-		</div>
-	</div>
+<!-- Offcanvas com amarelo queimado -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasDark" aria-labelledby="offcanvasDarkLabel"
+    style="background-color: #facf60; width: 200px;">
+    
+    <div class="offcanvas-header border-bottom">
+        <h5 class="offcanvas-title text-dark" id="offcanvasDarkLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Fechar"></button>
+    </div>
+    
+    <div class="offcanvas-body d-flex flex-column justify-content-between" style="height: 100%;">
+        <div class="d-flex flex-column gap-2">
+            <button onclick="tableShow('dashboard')" class="btn btn-light w-100">Dashboard</button>
+            <button onclick="tableShow('user')" class="btn btn-light w-100">Usuários</button>
+            <button onclick="tableShow('product')" class="btn btn-light w-100">Produtos</button>
+            <button onclick="tableShow('cliente')" class="btn btn-light w-100">Clientes</button>
+            <button onclick="tableShow('pedido')" class="btn btn-light w-100">Pedidos</button>
+        </div>
 
-	<!-- Navbar com botão togle e nome da aplicação  -->
-	<nav class="navbar navbar-dark bg-dark" style="display: none;">
-		<div class="container-fluid">
-			<button id="menu" class="navbar-toggler" type="button" data-bs-toggle="collapse"
-				data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<span class="navbar-toggler" style="color: white; font-size: 1.5rem;">Fullstack App</span>
-			<button onclick="logout()" class="navbar-toggler" type="button">
-				<i class="bi bi-box-arrow-in-left"></i>
-			</button>
-		</div>
-	</nav>
+        <div class="mt-3 border-top pt-3">
+            <span id="userName" class="text-dark">Usuário</span>
+            <button onclick="logout()" class="btn btn-outline-dark mt-2 w-100">
+                <i class="bi bi-box-arrow-in-left me-2"></i> Logout
+            </button>
+        </div>
+    </div>
+</div>
 
-	<br>
-	<br>
+
+</body>
+
+
 
 	<!-- Conteudo em si -->
 	<div class="container">
@@ -87,6 +78,7 @@
 		<br>
 
 	</div>
+	
 </body>
 
 <!-- importando o jquery -->
@@ -131,6 +123,19 @@
 <!-- Imports de inicialiação e de rotas -->
 <script src="js/routes.js"></script>
 <script src="js/init.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const offcanvasElement = document.getElementById('offcanvasDark');
+    const bsOffcanvas = bootstrap.Offcanvas.getOrCreateInstance(offcanvasElement);
+
+    document.querySelectorAll('#offcanvasDark .btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        bsOffcanvas.hide(); // Fecha o menu
+      });
+    });
+  });
+</script>
 
 
 

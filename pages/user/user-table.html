@@ -1,29 +1,31 @@
-	<!-- titulo lista de itens -->
-	<h1>Lista de Usuários</h1>
+<!-- Título lista de usuários -->
+<h1 class="mb-4 text-center">Lista de Usuários</h1>
 
-	<!-- Botao de criar novo item -->
-	<div class="d-grid gap-2">
-		<button onclick="formShow('user')" class="btn btn-primary" type="button">Cadastrar novo Usuário</button>
-	</div>
-	<br>
+<!-- Botão de criar novo usuário -->
+<div class="d-flex justify-content-center mb-4">
+    <button onclick="formShow('user')" class="btn btn-warning btn-lg shadow">
+        <i class="bi bi-plus-circle me-2"></i> Cadastrar novo Usuário
+    </button>
+</div>
 
+<div class="table-responsive">
+    <table class="table table-hover table-bordered shadow-sm rounded" style="text-align: center;">
+        <thead class="table-dark">
+            <tr>
+                <th style="background-color: #facf60; color: #333;">#</th>
+                <th style="background-color: #facf60; color: #333;">Nome</th>
+                <th style="background-color: #facf60; color: #333;">Email</th>
+                <th style="background-color: #facf60; color: #333;">Ações</th>
+            </tr>
+        </thead>
+        <tbody id="table-user">
+            <!-- Conteúdo dinâmico -->
+        </tbody>
+    </table>
+</div>
 
-	<table class="table" style="text-align: center;">
-		<thead>
-			<tr>
-				<th scope="col">#</th>
-				<th scope="col">Nome</th>
-				<th scope="col">Email</th>
-				<th scope="col">Ações</th>
-			</tr>
-		</thead>
-		<tbody id="table-user">
+<p class="text-center text-muted" id="mensage-table"></p>
 
-		</tbody>
-	</table>
-
-	<span style="text-align: center;" id="mensage-table"></span>
-
-	<script>
-		getUsers()	
-	</script>
+<script>
+    getUsers();
+</script>
