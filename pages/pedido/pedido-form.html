@@ -71,10 +71,6 @@
     <label for="valor_total" class="form-label">Valor Total</label>
     <label id="valor_total">R$ 0,00</label>
 </div>
-<!-- Data e hora do pedido -->
-<div class="col-md-12">
-    <label for="data_hora" class="form-label">Data e Hora</label>
-  <label id="valor_total">00/00/0000</label></div>
 
 
     <div class="col-12">
@@ -124,7 +120,7 @@
             const row = $("<tr>");
             row.append($("<td>").text(item.nomeProduto));
             row.append($("<td>").text(item.quantidade));
-            row.append($("<td>").text(item.preco));
+        row.append($("<td>").text("R$ " + parseFloat(item.preco).toFixed(2)));  // Formatar preço
             const acoesCell = $("<td>");
             const botaoRemover = $("<button>")
                 .text("Remover")

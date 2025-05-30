@@ -9,10 +9,10 @@ async function editPedido(id) {
         .then((response) => response.json())
         .then((data) => {
             const pedido = data;
-            // const itens = data.itens;
+            const itens = data.itens;
             
             console.log(pedido);
-           // console.log(itens);
+           console.log(itens);
 
             formShow("pedido");
 
@@ -26,8 +26,8 @@ async function editPedido(id) {
                 $("#data_hora").text(pedido.data_hora);
 
                 // itensPedido
-                //itensPedido = itens;
-                //atualizarListaItens();
+            itensPedido = itens;
+            atualizarListaItens();
                 
             }, 1000);
         })
